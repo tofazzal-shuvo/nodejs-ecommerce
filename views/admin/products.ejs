@@ -1,0 +1,32 @@
+
+    <%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/shop.css">
+    </head>
+    <body>
+        <%- include('../includes/nav.ejs') %>
+        <main>
+            <% if(products.length != 0){ %>
+                <% for(let i=0; i < products.length; i++){ %>
+                    <div class="product-box">
+                        <div class="product-box-inner">
+                            <h3 class="product-title"><%= products[i].title %></h3>
+                            <div class="product-img">
+                                <img class="img-reponsive" src="<%= products[i].imgUrl %>" alt="<%= products[i].title %>">
+                            </div>
+                            <h3 class="product-price">$<%= products[i].price %></h3>
+                            <div class="product-desc">
+                                <p><%= products[i].productDecs %></p>
+                            </div>
+                            <a href="/admin/edit-product" class="btn btn-general">Edit</a>
+                            <form action="/admin/delete-product" method="post" class="dis-inlineBlock">
+                                <button class="btn btn-general">Delete</button>
+                            </form>
+                        </div> 
+                    </div>
+                <% } %>
+            <% }else{ %>
+                <h1 class="h1-404">NO PRODUCT FOUND!</h1>
+            <% } %>
+        <%- include('../includes/end.ejs') %>
+
+        

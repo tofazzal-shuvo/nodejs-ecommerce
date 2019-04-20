@@ -1,0 +1,21 @@
+
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/shop.css">
+</head>
+<body>
+    <%- include('../includes/nav.ejs') %>
+    <main>
+        <div class="product-box">
+            <div class="product-box-inner">
+                <h3 class="product-title"><%= docTitle %></h3>
+                <div class="product-img">
+                    <img class="img-reponsive" src="<%= product.imgUrl %>" alt="<%= docTitle %>">
+                </div>
+                <h3 class="product-price">$<%= products.price %></h3>
+                <div class="product-desc">
+                    <p><%= products.productDecs %></p>
+                </div>
+                <%- include('../includes/add-to-cart.ejs',{product: products}) %>
+            </div>
+        </div>
+    <%- include('../includes/end.ejs') %>
